@@ -28,3 +28,11 @@ jobs:
       - name: Run token refresher
         run: node refresher.js
         timeout-minutes: 8
+
+      - name: Upload debug screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: login-screenshots
+          path: /tmp/login-*.png
+          if-no-files-found: ignore

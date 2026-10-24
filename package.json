@@ -1,0 +1,9 @@
+{
+  "name": "lgg-token-refresher",
+  "version": "3.0.0",
+  "description": "LovableGG pool token refresher — calls worker /refresh-token, no puppeteer",
+  "main": "refresher.js",
+  "scripts": {
+    "start": "node refresher.js"
+  }
+}

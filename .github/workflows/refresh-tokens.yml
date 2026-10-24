@@ -8,7 +8,7 @@ on:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 5
 
     steps:
       - name: Checkout
@@ -19,20 +19,6 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Install dependencies
-        run: npm install --no-package-lock
-
-      - name: Install Chromium
-        run: npx puppeteer browsers install chrome
-
       - name: Run token refresher
         run: node refresher.js
-        timeout-minutes: 8
-
-      - name: Upload debug screenshots
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: login-screenshots
-          path: /tmp/login-*.png
-          if-no-files-found: ignore
+        timeout-minutes: 4
